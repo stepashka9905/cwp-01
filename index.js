@@ -1,4 +1,4 @@
-const name = process.argv[0];
-const surname = process.argv[1];
-const name2 = process.argv[2];
-console.log(`Hi ${name} ${surname}, my name is ${name2}!`);
+var name = process.argv[2];
+var surname = process.argv[3];
+console.log(name);
+console.log(surname);
