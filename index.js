@@ -16,11 +16,11 @@
     const fs = require('fs');
 
     if (process.argv.length < 3) {
-        console.log("Not found path or other!");
+        console.log("Error (arguments) ");
         process.exit();
     }
     if (process.argv.length > 3) {
-        console.log("Too match!");
+        console.log("Error (arguments) ");
         process.exit();
     }
 
@@ -34,7 +34,7 @@
     let readAndCopyDirectory = function (dir, prefix) {
         fs.readdir(dir, (err, files) => {
             if (err) {
-                console.error("Ошибка чтения файлов в директории " + dir);
+                console.error("Error (read files) " + dir);
             } else {
                 files.forEach(function (element) {
                     let new_unit = dir + '\\' + element;
@@ -46,7 +46,7 @@
                         let new_file = `${NEW_DIRECTORY}\\${path.basename(new_unit)}`;
                         let logger = fs.createWriteStream(new_file);
                         fs.readFile(new_unit, (err, data) => {
-                            if (err) console.error("Произошла ошибка при копировании файла")
+                            if (err) console.error("Error (copy files) ")
                             else logger.write(copyright + '\n\n-------\n' + data + '\n--------\n\n' + copyright);
                         });
 
@@ -61,17 +61,17 @@
         fs.access(NEW_DIRECTORY, (err) => {
             if (err && err.code == 'ENOENT') {
                 fs.mkdir(NEW_DIRECTORY, (err) => {
-                    if (err) console.error("Произошла ошибка при создании директории");
+                    if (err) console.error("Error (mkdir) ");
                 });
                 fs.watch(NEW_DIRECTORY, (eventType, filename) => {
                     console.log(`${eventType} - ${filename}`);
                 });
             }
-            else console.log("Такой директорий уже существует!");
+            else console.log("Error (mkdir) ");
         });
         // получение copyright
         fs.readFile("config.json", (err, data) => {
-            if (err) console.error("Произошла ошибка при чтении файла")
+            if (err) console.error("Error (read .json files) ")
             else {
                 copyright = JSON.parse(data).copyright;
             }
