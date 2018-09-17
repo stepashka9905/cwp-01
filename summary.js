@@ -1,2 +1,2 @@
 console.log('1.txt');
-console.log('2.txt');
+console.log('qwerty/qwerty2/2.txt');
