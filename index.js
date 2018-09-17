@@ -12,9 +12,10 @@
 
 // 5 task
 {
+    //----------подключаем модули--------
     const path = require('path');
     const fs = require('fs');
-
+    //----------проверяем на входные аргументы-------
     if (process.argv.length < 3) {
         console.log("Error (arguments) ");
         process.exit();
