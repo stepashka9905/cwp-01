@@ -4,11 +4,11 @@
 // console.log(surname);
 
 // 4 task
-{
-
-for (let i = 0;i<process.argv.length-2; i++){
-    console.log(process.argv[i+2]);
-}}
+// {
+//
+// for (let i = 0;i<process.argv.length-2; i++){
+//     console.log(process.argv[i+2]);
+// }}
 
 // 5 task
 {
